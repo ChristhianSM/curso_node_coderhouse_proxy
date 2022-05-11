@@ -1,0 +1,38 @@
+{{#if products}}
+    {{#each products }}
+        <tr>
+            <td class="px-5 border-b border-gray-200 bg-white text-sm">
+                <div class="flex items-center">
+                    <div>
+                        {{@index}}
+                    </div>
+                </div>
+            </td>
+            <td class="px-5 border-b border-gray-200 bg-white text-sm">
+                <p class="text-gray-900 whitespace-no-wrap">{{this.name}}</p>
+            </td>
+            <td class="px-5 border-b border-gray-200 bg-white text-sm">
+                <p class="text-gray-900 whitespace-no-wrap">
+                    S/. {{this.price}}
+                </p>
+            </td>
+            <td class="px-5 border-b border-gray-200 bg-white text-sm">
+                <img src="{{this.image}}" alt="" height="70" width="70">
+            </td>
+            <td class="px-5 border-b border-gray-200 bg-white text-sm">
+                <button class="btn-editar mr-3" id={{this.id_product}} > 
+                    <img src="../img/editar.png" alt="" width="30" height="30">
+                </button>
+                <button class="btn-eliminar" id={{this.id_product}} onclick="deleteProduct('{{this.id_product}}')"> 
+                    <img src="../img/eliminar.png" alt="" width="30" height="30">
+                </button>
+            </td>
+        </tr>
+    {{/each}}
+{{else}}
+    <tr>
+        <td colspan="5" class="text-center p-20">
+            <p class="mb-8">No hay productos para mostrar</p>
+        </td>
+    </tr>
+{{/if}}
